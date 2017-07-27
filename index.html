@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Peter Lum | Multidisciplinary Designer</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link href="css/hamburgers.css" rel="stylesheet">
+</head>
+
+<style>
+	html,body{
+		-webkit-font-smoothing: antialiased;
+	}
+
+	body{
+		font-family: 'Raleway', sans-serif;
+	}
+
+	header{
+		z-index:500;
+		height:70px;
+		width:100vw;
+		position:fixed;
+		top:0;
+		background-color: rgba(60,30,120,1);
+	}
+
+	footer{
+		height:150px;
+
+	}
+
+	section{
+		height:100vh;
+		width:100vw;
+	}
+	
+	img{
+		max-width: 100%;
+		height:auto;
+	}
+
+	#section1{
+		z-index:207;
+	    background-image: url("http://www.metalinjection.net/wp-content/uploads/2014/07/space-metal.jpg");
+	}
+
+	#section2{
+			z-index:206;
+    	background-image: url("https://media.wired.com/photos/59268c5dcfe0d93c474309a2/master/w_2000,c_limit/BSP_054.jpg");
+	}
+	
+	#section3{
+		z-index:205;
+    	background-image: url("http://jonvilma.com/images/space-10.jpg");
+	}
+
+	#section4{
+		z-index:204;
+	    background-image: url("http://www.unforgettable-jewelry.com/finegifts/wp-content/uploads/2015/07/space.jpg");		
+	}
+	
+	#section5{
+		z-index:203;
+	    background-image: url("https://images8.alphacoders.com/397/397989.jpg");		
+	}
+
+	#section6{
+		z-index:202;
+	    background-image: url("http://scienceblogs.com/startswithabang/files/2013/04/night-sky-stars.jpeg");		
+	}
+
+	#section7{
+		z-index:201;
+		height:150vh;
+		-webkit-box-shadow: 0px 15px 33px -5px rgba(0,0,0,0.38);
+		-moz-box-shadow: 0px 15px 33px -5px rgba(0,0,0,0.38);
+		box-shadow: 0px 15px 33px -5px rgba(0,0,0,0.38);
+	}
+	
+	#container{
+		overflow-x: hidden;
+		width:100vw;
+		margin:0 auto;
+		padding:0;
+	}
+
+	.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+	}
+	.headroom--pinned {
+	    transform: translateY(0%);
+	}
+	.headroom--unpinned {
+	    transform: translateY(-100%);
+	}
+
+	.content {
+	  display:inline-block;
+	  height:100%;
+	  width:100%;
+	  text-align: center;
+	}
+
+/*	.content h1,h2,h3,h4,h5,h6,p,a,i,span {
+	  display: inline-block;
+	  position: relative;
+	  top: 34%;
+	  /*transform: translateY(-50%);*/
+/*	}*/
+
+	.content{
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	}
+
+	h1{
+		letter-spacing: 1px;
+	}
+
+	.modalHeading{
+	text-align: center;
+    color: white;
+    font-size: 5rem;
+    font-weight:900;
+    margin: 0 auto;
+    position: absolute;
+    top:36vh;
+    left: 0;
+    right: 0;
+	}
+
+	.parallax{
+		background-attachment: fixed;
+    	background-position: center;
+    	background-repeat: no-repeat;
+    	background-size: cover;
+	}
+
+	.inlineList{
+		top:50%;
+		display:inline-block;
+		padding:5px;
+	}
+
+	a{
+		color:#1E3EFF;
+		text-decoration:none;
+	}
+
+	a:hover{
+		color:#F5A623;
+		text-decoration:underline;
+	}
+
+	.menu{
+		z-index:1001;
+		position: fixed;
+    	right: 10px;
+    	top: 10px;
+	}
+
+	button:focus {
+		outline:0;
+	}
+	.menuNav{
+		width:100vw;
+		top:0;
+		left:0;
+		position:fixed;
+		background-color: rgba(0,0,0,.95);
+		color: white;
+		transition: .6s;
+	}
+	#menuList{
+		width:100vw;
+		height:100vh;
+		text-align:center;
+		margin:0 auto;
+	}
+	#menuList ul{
+		top:0;
+		position: relative;
+	}
+	#menuList li{
+		display: flex;
+  		justify-content: center;
+  		align-items: center; 
+		list-style-type:none;
+		height:20%;
+		margin-bottom:0px;
+	}
+	#menuList li:hover{
+		background-color: rgba(255,255,255,.9);
+	}
+
+	#menuList a{
+		display: inline-block;
+		text-decoration: none;
+		font-size: 2.5rem;
+	}
+	.hidden{
+		transition-timing-function:ease-in;
+		opacity:0;
+		transition: .6s;
+	}
+
+	.hideComplete{
+		transition-timing-function:ease-out;
+		z-index:-102;
+	}
+
+	.unhidden{
+		transition-timing-function:ease-out;
+		z-index:501;
+		transition: .8s;
+	}
+
+	.up{
+		transition-timing-function:ease-in;
+		margin-top:-300px;
+		transition: .8s;
+	}
+	.down{
+		transition-timing-function:ease-in;
+		margin-top:0px;
+		transition: .4s;
+	}
+	
+    .btn-close-modal {
+	    width: 100%;
+	    text-align: center;
+	    color: #fff;
+	    /*padding-top: 5px;
+	    height: 40px;
+	    padding-bottom: 5px;
+	    margin-top: 5px;*/
+    }
+
+	.close-button {
+		  height: 32px;
+		  width: 32px;
+		  position: relative;
+		  box-sizing: border-box;
+		  line-height: 5px;
+		  display: inline-block;
+		  float:right;
+		  margin-right:24px;
+		  margin-top:20px;
+		  border-radius:4px;
+		  z-index: 9999;
+		}
+		.close-button:before, .close-button:after {
+		  transform: rotate(-45deg);
+		  content: '';
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  margin-top: -5px;
+		  margin-left: -15px;
+		  display: block;
+		  height: 5px;
+		  width: 32px;
+		  background-color: #fff;
+		  border-radius: 4px;
+		  transition: all 0.25s ease-out;
+		}
+		.close-button:after {
+		  transform: rotate(-135deg);
+		  border-radius: 4px;
+		}
+		.close-button:hover:before, .close-button:hover:after {
+		  transform: rotate(0deg);
+		  border-radius: 4px;
+		}
+
+		.modal-content{
+			width:100vw;
+		}
+
+	.isHidden{
+		display:none;
+		z-index:-9999;
+	}
+
+	#modalHeader1{
+		width:100%; height:100vh; top:0; left:0; background-image:url('https://static.pexels.com/photos/2154/sky-lights-space-dark.jpg');
+			background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+	}
+
+.align-items{
+	  max-width: 50%;
+}
+
+	.modalHeaders{
+   		background-attachment:fixed;
+   		   		-moz-background-size: auto;
+		-webkit-background-size: auto;
+		background-position: center content;
+		background-size: auto;
+	}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.modalHeaders{
+   		background-attachment: scroll;
+   		-moz-background-size: auto;
+		-webkit-background-size: auto;
+		background-position: center content;
+		background-size: auto;
+	}
+}
+
+
+
+</style>
+<body>
+
+	<div class="hidden hideComplete menuNav">
+		<button class="hamburger hamburger--emphatic menu" type="button">
+		  <span class="hamburger-box">
+		    <span class="hamburger-inner"></span>
+		  </span>
+		</button>
+		<ul id="menuList" class="menuItems">
+			<li class="menuItems">
+				<a href="#section1" class="menuItems up">HOME</a>
+			</li>			
+			<li class="menuItems">
+				<a href="#section2" class="menuItems up ">WORK</a>
+			</li>
+			<li class="menuItems">
+				<a href="#section7" class="menuItems up">BLOG</a>
+			</li>
+			<li class="menuItems">
+				<a href="Contact" class="menuItems up">CONTACT</a>
+			</li class="menuItems">	
+			<li>
+				<a href="Social" class="menuItems up">SOCIAL</a>
+			</li>			
+		</ul>
+	</div>
+	<header id="header" class="headroom">
+		<div id="logo"></div>
+		<div id="links"></div>
+		<button class="hamburger hamburger--emphatic menu" type="button">
+		  <span class="hamburger-box">
+		    <span class="hamburger-inner"></span>
+		  </span>
+		</button>
+	</header>
+	<main>
+		<div id="container">
+			<section class="parallax sectionScroll" id="section1" data-section-name="first" style="background-color:white;">
+				<div class="content">
+					<div class="align-items">
+						<h1 class="tlt" style=" color:white; font-weight:900; display:block;">Hello!</h1>
+						<p style="font-size:1.8rem; color:white; font-weight:500; line-height:3rem; display:block; ">My name is Peter. I'm a multidisciplinary designer.<br>Currently at <span><a href="">Sony Music/The Orchard.</a></span> <br> I craft experiences, emotion, & empathy.<br>Explore my work or <span><a href="" onclick="window.scrollTo(0,document.body.scrollHeight);">Let's work together!</a></span></p>
+					</div>
+				</div>
+			</section>
+			<section class="parallax sectionScroll" id="section2" data-section-name="second" style="background-color:blue;">
+				<div class="content">
+					<div class="align-items">
+						<h1 style="font-size:5rem; color:white; font-weight:900; display:block;">Project 1</h1>
+            			<a class="projectButton1" style="display:block; font-size:2rem; margin:0 auto;" id="project1" href="#modal-01">Explore Project</a>
+					</div>
+				</div>
+			</section>
+			<section class="parallax sectionScroll" id="section3" data-section-name="third" style="background-color:red;">
+				<div class="content">
+					<div class="align-items">
+						<h1 style="font-size:5rem; color:white; font-weight:900; display:block;">Project 2</h1>
+						<a class="projectButton2" style="display:block; font-size:2rem; margin:0 auto;" id="project2" href="#modal-02">Explore Project</a>
+					</div>
+				</div>
+			</section>
+			<section class="parallax sectionScroll" id="section4" data-section-name="fourth" style="background-color:orange;">
+				<div class="content">
+					<div class="align-items">
+						<h1 style="font-size:5rem; color:white; font-weight:900; display:block;">Project 3</h1>
+						<a class="projectButton3" style="display:block; font-size:2rem; margin:0 auto;" id="project3" href="#modal-03">Explore Project</a>
+					</div>
+				</div>				
+			</section>
+			<section class="parallax sectionScroll" id="section5" data-section-name="fifth" style="background-color:blue;">
+				<div class="content">
+					<div class="align-items">
+						<h1 style="font-size:5rem; color:white; font-weight:900; display:block; ">Project 4</h1>
+						<a class="projectButton4" style="display:block; font-size:2rem; margin:0 auto;" id="project4" href="#modal-04">Explore Project</a>	
+					</div>				
+				</div>				
+			</section>
+			<section class="parallax sectionScroll" id="section6" data-section-name="sixth" style="background-color:blue;">
+				<div class="content">
+					<div class="align-items">
+						<h1 style="font-size:5rem; color:white; font-weight:900; display:block;">Project 5</h1>
+						<a class="projectButton5" style="display:block; font-size:2rem; margin:0 auto;" id="project5" href="#modal-05">Explore Project</a>	
+					</div>				
+				</div>				
+			</section>
+			<section class="parallax sectionScroll" id="section7" data-section-name="seventh" style="background-color:rgba(230,230,230,1);">
+				<div class="content">
+					<div style="align-self: flex-start; padding:20px; margin-top:50px;">
+						<h1 style="font-size:5rem; color:black; font-weight:900; margin:0 auto;">About Me/Expertise</h1>					
+					</div>
+				</div>				
+			</section>
+		</div>
+	</main>
+	<footer>
+
+		<div class="content">
+			<div style="margin-top:88px;">
+				<h5 style="margin-bottom:5px; font-weight:500;">Thanks for coming! Also find me on:</h5>
+				<ul style="list-style-type:none; padding-top:8px;">
+					<li class="inlineList"><a href=""><i class="fa fa-facebook-official fa-2x"></i></a></li>
+					<li class="inlineList"><a href=""><i class="fa fa-instagram fa-2x"></i></a></li>
+					<li class="inlineList"><a href=""><i class="fa fa-pinterest fa-2x"></i></a></li>
+					<li class="inlineList"><a href=""><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+					<li class="inlineList"><a href=""><i class="fa fa-medium fa-2x"></i></a></li>
+					<li class="inlineList"><a href=""><i class="fa fa-envelope fa-2x"></i></a></li>
+				</ul>
+				<br>
+				<a href="#section1">Top</a>
+			</div>
+		</div>
+	</footer> 
+	                     <!--Project1-->
+        <div id="modal-01" style="overflow-y:scroll;">
+            <!--"THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID
+            <div class="btn-close-modal" > 
+				<!--<i class="fa fa-times fa-2x" aria-hidden="true"></i>
+            </div>-->
+            <div class="modal-content">
+                <!--Your modal content goes here-->
+				<div class="parallax content">
+					<div style="width:100vw; height:100vh;">
+						<img style="width:100vw; height:auto; display:block; justify-content: center; align-items:center;" src="https://static.pexels.com/photos/2154/sky-lights-space-dark.jpg" alt="">
+						<h1 style="display:block; font-size:5rem; font-weight:900; margin:0 auto; color:white; top: 42vh; position: absolute; left: 0; right: 0;">Project 1</h1>
+					</div>
+				</div>
+				<div style="width:96vw; margin:0 auto; padding:3px;">
+
+					<div class="container">
+
+					  <!-- columns should be the immediate child of a .row -->
+					  <div class="row" style="padding:8px;">
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="four columns">One</div>
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="eight columns">Eleven</div>
+					  </div>
+
+					  <!-- just use a number and class 'column' or 'columns' -->
+					  <div class="row" style="padding:8px;">
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="two columns">Two</div>
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="ten columns">Ten</div>
+					  </div>
+
+					  <!-- there are a few shorthand columns widths as well -->
+					  <div class="row" style="padding:8px;">
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="one-third column">1/3</div>
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;;" class="two-thirds column">2/3</div>
+					  </div>
+					  <div class="row" style="padding:8px;">
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="one-half column">1/2</div>
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="one-half column">1/2</div>
+					  </div>
+					  					  <!-- columns should be the immediate child of a .row -->
+					  <div class="row" style="padding:8px;">
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="four columns">One</div>
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="eight columns">Eleven</div>
+					  </div>
+
+					  <!-- just use a number and class 'column' or 'columns' -->
+					  <div class="row" style="padding:8px;">
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="two columns">Two</div>
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="ten columns">Ten</div>
+					  </div>
+
+					  <!-- there are a few shorthand columns widths as well -->
+					  <div class="row" style="padding:8px;">
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="one-third column">1/3</div>
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;;" class="two-thirds column">2/3</div>
+					  </div>
+					  <div class="row" style="padding:8px;">
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="one-half column">1/2</div>
+					    <div style="background-color:rgba(100,100,100,1); padding:5px; margin-top:5px;" class="one-half column">1/2</div>
+					  </div>
+
+					</div>
+
+
+				</div>
+            </div>
+        </div>
+        <!--Project2-->
+        <div id="modal-02">
+          <div class="modal-content">
+                <!--Your modal content goes here-->
+			<div class="modalHeaders" style="width:100%; height:100vh; top:0; left:0; background-image:url('https://static.pexels.com/photos/2154/sky-lights-space-dark.jpg'); 
+			">
+			</div>
+			<div style="max-width:80vw; margin:0 auto; padding:20px;">
+				<p style="line-height:4rem;">
+                	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam metus leo, tristique vitae rhoncus quis, lobortis ac dui. Pellentesque at ultricies lacus, sit amet imperdiet massa. In finibus sem at quam sollicitudin aliquet. In tincidunt magna sit amet leo pulvinar tincidunt. Sed id molestie dolor. Nullam tristique, risus sollicitudin rhoncus placerat, erat lectus interdum ligula, vitae suscipit neque lectus id mi. Donec et tristique arcu. Donec interdum massa vel elit lobortis, nec suscipit mi vestibulum. Nullam vitae porttitor diam, at elementum augue.
+
+					Suspendisse commodo lacinia suscipit. Maecenas quis felis at nunc ullamcorper fringilla. Morbi efficitur ipsum quis ultrices mattis. Etiam eleifend convallis arcu, non convallis nisi sodales id. Etiam leo neque, gravida sit amet eros sit amet, posuere commodo enim. Donec elementum odio nec ipsum placerat porta. Nulla blandit nisl metus, at lacinia ante tincidunt quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris turpis lacus, consectetur vitae velit eget, molestie faucibus purus. Ut vel fermentum ligula. Donec magna magna, commodo non tellus sit amet, commodo ultricies erat. Suspendisse nec iaculis mauris, nec venenatis massa. In scelerisque metus lacus, sit amet placerat felis aliquam eu. Quisque malesuada, metus ut ornare posuere, nulla elit porttitor ante, consequat sollicitudin magna orci sit amet sapien. Cras eget cursus lectus, vitae vestibulum tortor. Donec rhoncus semper tempus.
+
+					Fusce at lacinia augue, eget gravida tellus. Proin ut dapibus lorem, eget elementum velit. Morbi vulputate auctor dictum. Suspendisse rutrum dapibus libero, suscipit feugiat mi fermentum at. Cras sodales nunc leo. Sed efficitur risus nec magna dictum ultricies. Nulla nec finibus arcu. Donec eu lacus eget erat fringilla cursus in et justo. Praesent vitae tortor eu velit ullamcorper tempor.
+
+					In mauris est, molestie facilisis rhoncus eget, accumsan id est. Quisque pharetra purus id magna rhoncus suscipit. Nullam id nibh risus. Nullam sit amet turpis malesuada, molestie lacus non, sagittis sapien. Quisque non interdum magna. Cras vel risus et mauris elementum viverra. Mauris ut auctor nibh. Nam lobortis volutpat sollicitudin. Nullam iaculis nunc sed lacus ornare rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec eget tempus justo. Nunc semper ex posuere orci laoreet, in pellentesque metus vestibulum. Etiam cursus vel arcu iaculis tincidunt. Proin quis nulla non orci ultricies accumsan sed finibus mauris.
+
+					Aliquam pulvinar, est ac mollis rutrum, diam erat tincidunt libero, vel convallis est lectus nec mi. Praesent eu vestibulum enim. Mauris vel bibendum tellus. Pellentesque finibus ornare odio, condimentum aliquet justo varius ac. Aenean egestas eget erat id eleifend. Aenean condimentum arcu purus, interdum dictum tellus pellentesque nec. Etiam interdum non diam a tempor. Phasellus ligula enim, mollis vitae cursus imperdiet, aliquet ut purus. Proin nec varius felis. Nam ut ipsum vitae ante efficitur ultrices. Nulla facilisi. Mauris eget nibh sollicitudin justo congue pretium. Donec volutpat mattis tellus, nec ultricies leo sodales a. Sed ac tempus tortor. Aenean vestibulum ut lorem et venenatis.
+                </p>
+                <img src="https://openclipart.org/download/261329/Rocket-ship-Clip-Art.svg" alt="">
+			</div>
+
+            </div>
+        </div>
+        <!--Project3-->
+        <div id="modal-03">
+            <div class="modal-content">
+                <!--Your modal content goes here-->
+			<div class="modalHeaders" style="width:100vw; height:100vh; top:0; left:0; background-image:url('https://static.pexels.com/photos/2154/sky-lights-space-dark.jpg');
+
+			">
+			</div>
+			<div style="width:90vw; margin:0 auto; padding:20px;">
+				<p style="line-height:4rem;">
+                	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam metus leo, tristique vitae rhoncus quis, lobortis ac dui. Pellentesque at ultricies lacus, sit amet imperdiet massa. In finibus sem at quam sollicitudin aliquet. In tincidunt magna sit amet leo pulvinar tincidunt. Sed id molestie dolor. Nullam tristique, risus sollicitudin rhoncus placerat, erat lectus interdum ligula, vitae suscipit neque lectus id mi. Donec et tristique arcu. Donec interdum massa vel elit lobortis, nec suscipit mi vestibulum. Nullam vitae porttitor diam, at elementum augue.
+
+					Suspendisse commodo lacinia suscipit. Maecenas quis felis at nunc ullamcorper fringilla. Morbi efficitur ipsum quis ultrices mattis. Etiam eleifend convallis arcu, non convallis nisi sodales id. Etiam leo neque, gravida sit amet eros sit amet, posuere commodo enim. Donec elementum odio nec ipsum placerat porta. Nulla blandit nisl metus, at lacinia ante tincidunt quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris turpis lacus, consectetur vitae velit eget, molestie faucibus purus. Ut vel fermentum ligula. Donec magna magna, commodo non tellus sit amet, commodo ultricies erat. Suspendisse nec iaculis mauris, nec venenatis massa. In scelerisque metus lacus, sit amet placerat felis aliquam eu. Quisque malesuada, metus ut ornare posuere, nulla elit porttitor ante, consequat sollicitudin magna orci sit amet sapien. Cras eget cursus lectus, vitae vestibulum tortor. Donec rhoncus semper tempus.
+
+					Fusce at lacinia augue, eget gravida tellus. Proin ut dapibus lorem, eget elementum velit. Morbi vulputate auctor dictum. Suspendisse rutrum dapibus libero, suscipit feugiat mi fermentum at. Cras sodales nunc leo. Sed efficitur risus nec magna dictum ultricies. Nulla nec finibus arcu. Donec eu lacus eget erat fringilla cursus in et justo. Praesent vitae tortor eu velit ullamcorper tempor.
+
+					In mauris est, molestie facilisis rhoncus eget, accumsan id est. Quisque pharetra purus id magna rhoncus suscipit. Nullam id nibh risus. Nullam sit amet turpis malesuada, molestie lacus non, sagittis sapien. Quisque non interdum magna. Cras vel risus et mauris elementum viverra. Mauris ut auctor nibh. Nam lobortis volutpat sollicitudin. Nullam iaculis nunc sed lacus ornare rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec eget tempus justo. Nunc semper ex posuere orci laoreet, in pellentesque metus vestibulum. Etiam cursus vel arcu iaculis tincidunt. Proin quis nulla non orci ultricies accumsan sed finibus mauris.
+
+					Aliquam pulvinar, est ac mollis rutrum, diam erat tincidunt libero, vel convallis est lectus nec mi. Praesent eu vestibulum enim. Mauris vel bibendum tellus. Pellentesque finibus ornare odio, condimentum aliquet justo varius ac. Aenean egestas eget erat id eleifend. Aenean condimentum arcu purus, interdum dictum tellus pellentesque nec. Etiam interdum non diam a tempor. Phasellus ligula enim, mollis vitae cursus imperdiet, aliquet ut purus. Proin nec varius felis. Nam ut ipsum vitae ante efficitur ultrices. Nulla facilisi. Mauris eget nibh sollicitudin justo congue pretium. Donec volutpat mattis tellus, nec ultricies leo sodales a. Sed ac tempus tortor. Aenean vestibulum ut lorem et venenatis.
+                </p>
+                <img src="https://openclipart.org/download/261329/Rocket-ship-Clip-Art.svg" alt="">
+			</div>
+
+            </div>
+
+        </div>
+        <!--Project4-->
+        <div id="modal-04">
+           <div class="modal-content">
+                <!--Your modal content goes here-->
+			<div class="modalHeaders" style="width:100%; height:100vh; top:0; left:0; background-image:url('https://static.pexels.com/photos/2154/sky-lights-space-dark.jpg');
+			">
+			</div>
+			<div style="width:90vw; margin:0 auto; padding:20px;">
+				<p style="line-height:4rem;">
+                	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam metus leo, tristique vitae rhoncus quis, lobortis ac dui. Pellentesque at ultricies lacus, sit amet imperdiet massa. In finibus sem at quam sollicitudin aliquet. In tincidunt magna sit amet leo pulvinar tincidunt. Sed id molestie dolor. Nullam tristique, risus sollicitudin rhoncus placerat, erat lectus interdum ligula, vitae suscipit neque lectus id mi. Donec et tristique arcu. Donec interdum massa vel elit lobortis, nec suscipit mi vestibulum. Nullam vitae porttitor diam, at elementum augue.
+
+					Suspendisse commodo lacinia suscipit. Maecenas quis felis at nunc ullamcorper fringilla. Morbi efficitur ipsum quis ultrices mattis. Etiam eleifend convallis arcu, non convallis nisi sodales id. Etiam leo neque, gravida sit amet eros sit amet, posuere commodo enim. Donec elementum odio nec ipsum placerat porta. Nulla blandit nisl metus, at lacinia ante tincidunt quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris turpis lacus, consectetur vitae velit eget, molestie faucibus purus. Ut vel fermentum ligula. Donec magna magna, commodo non tellus sit amet, commodo ultricies erat. Suspendisse nec iaculis mauris, nec venenatis massa. In scelerisque metus lacus, sit amet placerat felis aliquam eu. Quisque malesuada, metus ut ornare posuere, nulla elit porttitor ante, consequat sollicitudin magna orci sit amet sapien. Cras eget cursus lectus, vitae vestibulum tortor. Donec rhoncus semper tempus.
+
+					Fusce at lacinia augue, eget gravida tellus. Proin ut dapibus lorem, eget elementum velit. Morbi vulputate auctor dictum. Suspendisse rutrum dapibus libero, suscipit feugiat mi fermentum at. Cras sodales nunc leo. Sed efficitur risus nec magna dictum ultricies. Nulla nec finibus arcu. Donec eu lacus eget erat fringilla cursus in et justo. Praesent vitae tortor eu velit ullamcorper tempor.
+
+					In mauris est, molestie facilisis rhoncus eget, accumsan id est. Quisque pharetra purus id magna rhoncus suscipit. Nullam id nibh risus. Nullam sit amet turpis malesuada, molestie lacus non, sagittis sapien. Quisque non interdum magna. Cras vel risus et mauris elementum viverra. Mauris ut auctor nibh. Nam lobortis volutpat sollicitudin. Nullam iaculis nunc sed lacus ornare rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec eget tempus justo. Nunc semper ex posuere orci laoreet, in pellentesque metus vestibulum. Etiam cursus vel arcu iaculis tincidunt. Proin quis nulla non orci ultricies accumsan sed finibus mauris.
+
+					Aliquam pulvinar, est ac mollis rutrum, diam erat tincidunt libero, vel convallis est lectus nec mi. Praesent eu vestibulum enim. Mauris vel bibendum tellus. Pellentesque finibus ornare odio, condimentum aliquet justo varius ac. Aenean egestas eget erat id eleifend. Aenean condimentum arcu purus, interdum dictum tellus pellentesque nec. Etiam interdum non diam a tempor. Phasellus ligula enim, mollis vitae cursus imperdiet, aliquet ut purus. Proin nec varius felis. Nam ut ipsum vitae ante efficitur ultrices. Nulla facilisi. Mauris eget nibh sollicitudin justo congue pretium. Donec volutpat mattis tellus, nec ultricies leo sodales a. Sed ac tempus tortor. Aenean vestibulum ut lorem et venenatis.
+                </p>
+                <img src="https://openclipart.org/download/261329/Rocket-ship-Clip-Art.svg" alt="">
+			</div>
+
+            </div>
+        </div> 
+        <!--Project5-->
+        <div id="modal-05">
+           <div class="modal-content">
+                <!--Your modal content goes here-->
+			<div class="modalHeaders" style="width:100%; height:100vh; top:0; left:0; background-image:url('https://static.pexels.com/photos/2154/sky-lights-space-dark.jpg');
+			">
+			</div>
+			<div style="width:90vw; margin:0 auto; padding:20px;">
+				<p style="line-height:4rem;">
+                	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam metus leo, tristique vitae rhoncus quis, lobortis ac dui. Pellentesque at ultricies lacus, sit amet imperdiet massa. In finibus sem at quam sollicitudin aliquet. In tincidunt magna sit amet leo pulvinar tincidunt. Sed id molestie dolor. Nullam tristique, risus sollicitudin rhoncus placerat, erat lectus interdum ligula, vitae suscipit neque lectus id mi. Donec et tristique arcu. Donec interdum massa vel elit lobortis, nec suscipit mi vestibulum. Nullam vitae porttitor diam, at elementum augue.
+
+					Suspendisse commodo lacinia suscipit. Maecenas quis felis at nunc ullamcorper fringilla. Morbi efficitur ipsum quis ultrices mattis. Etiam eleifend convallis arcu, non convallis nisi sodales id. Etiam leo neque, gravida sit amet eros sit amet, posuere commodo enim. Donec elementum odio nec ipsum placerat porta. Nulla blandit nisl metus, at lacinia ante tincidunt quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris turpis lacus, consectetur vitae velit eget, molestie faucibus purus. Ut vel fermentum ligula. Donec magna magna, commodo non tellus sit amet, commodo ultricies erat. Suspendisse nec iaculis mauris, nec venenatis massa. In scelerisque metus lacus, sit amet placerat felis aliquam eu. Quisque malesuada, metus ut ornare posuere, nulla elit porttitor ante, consequat sollicitudin magna orci sit amet sapien. Cras eget cursus lectus, vitae vestibulum tortor. Donec rhoncus semper tempus.
+
+					Fusce at lacinia augue, eget gravida tellus. Proin ut dapibus lorem, eget elementum velit. Morbi vulputate auctor dictum. Suspendisse rutrum dapibus libero, suscipit feugiat mi fermentum at. Cras sodales nunc leo. Sed efficitur risus nec magna dictum ultricies. Nulla nec finibus arcu. Donec eu lacus eget erat fringilla cursus in et justo. Praesent vitae tortor eu velit ullamcorper tempor.
+
+					In mauris est, molestie facilisis rhoncus eget, accumsan id est. Quisque pharetra purus id magna rhoncus suscipit. Nullam id nibh risus. Nullam sit amet turpis malesuada, molestie lacus non, sagittis sapien. Quisque non interdum magna. Cras vel risus et mauris elementum viverra. Mauris ut auctor nibh. Nam lobortis volutpat sollicitudin. Nullam iaculis nunc sed lacus ornare rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec eget tempus justo. Nunc semper ex posuere orci laoreet, in pellentesque metus vestibulum. Etiam cursus vel arcu iaculis tincidunt. Proin quis nulla non orci ultricies accumsan sed finibus mauris.
+
+					Aliquam pulvinar, est ac mollis rutrum, diam erat tincidunt libero, vel convallis est lectus nec mi. Praesent eu vestibulum enim. Mauris vel bibendum tellus. Pellentesque finibus ornare odio, condimentum aliquet justo varius ac. Aenean egestas eget erat id eleifend. Aenean condimentum arcu purus, interdum dictum tellus pellentesque nec. Etiam interdum non diam a tempor. Phasellus ligula enim, mollis vitae cursus imperdiet, aliquet ut purus. Proin nec varius felis. Nam ut ipsum vitae ante efficitur ultrices. Nulla facilisi. Mauris eget nibh sollicitudin justo congue pretium. Donec volutpat mattis tellus, nec ultricies leo sodales a. Sed ac tempus tortor. Aenean vestibulum ut lorem et venenatis.
+                </p>
+                <img src="https://openclipart.org/download/261329/Rocket-ship-Clip-Art.svg" alt="">
+			</div>
+
+            </div>
+        </div>  
+
+        <div style="position:fixed; top:0px; right:0px; z-index:9999;">
+        	<a href="#" id="closeAll1" class="isHidden close-button close-modal-01"></a>
+        </div>
+     	<div style="position:fixed; top:0px; right:0px; z-index:9999;">
+        	<a href="#" id="closeAll2" class="isHidden close-button close-modal-02"></a>
+        </div>
+        <div style="position:fixed; top:0px; right:0px; z-index:9999;">
+        	<a href="#" id="closeAll3" class="isHidden close-button close-modal-03"></a>
+        </div>
+        <div style="position:fixed; top:0px; right:0px; z-index:9999;">
+        	<a href="#" id="closeAll4" class="isHidden close-button close-modal-04"></a>
+        </div>
+        <div style="position:fixed; top:0px; right:0px; z-index:9999;">
+        	<a href="#" id="closeAll5" class="isHidden close-button close-modal-05"></a>
+        </div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/headroom.min.js'></script>
+	<script src="js/animatedModal.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.14/jquery.scrollify.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"></script>
+	<script src="js/footer-reveal.min.js"></script>
+	<script type="text/javascript">
+		(function() {
+		    var header = document.querySelector("#header");
+
+		    if(window.location.hash) {
+		      header.classList.add("headroom--unpinned");
+		    }
+
+		    var headroom = new Headroom(header, {
+		        tolerance: {
+		          down : 10,
+		          up : 1
+		        },
+		        offset : 100
+		    });
+		    headroom.init();
+
+		}());
+
+		$('footer').footerReveal({ shadow: false, zIndex: -100 });
+
+/*		$('.projectButton, .closeAll').on("click", function(){
+		  	$('.closeAll').toggleClass("isHidden");
+		  }); */
+		$('.projectButton1, #closeAll1').on("click", function(){
+			$(".modal-content").scrollTop(0);
+		  	$('#closeAll1').toggleClass("isHidden");
+		  	$('#header').toggleClass("isHidden");
+		});
+
+		$('.projectButton2, #closeAll2').on("click", function(){
+			$(".modal-content").scrollTop(0);
+		  	$('#closeAll2').toggleClass("isHidden");
+		  	$('#header').toggleClass("isHidden");
+		});
+
+		$('.projectButton3, #closeAll3').on("click", function(){
+			$(".modal-content").scrollTop(0);
+		  	$('#closeAll3').toggleClass("isHidden");
+		  	$('#header').toggleClass("isHidden");
+		});
+
+		$('.projectButton4, #closeAll4').on("click", function(){
+			$(".modal-content").scrollTop(0);			
+		  	$('#closeAll4').toggleClass("isHidden");
+		  	$('#header').toggleClass("isHidden");
+		});
+
+		$('.projectButton5, #closeAll5').on("click", function(){
+			$(".modal-content").scrollTop(0);			
+		  	$('#closeAll5').toggleClass("isHidden");
+			$('#header').toggleClass("isHidden");  	
+		});
+
+		$.scrollify({
+		    section : ".sectionScroll",
+		    sectionName : "section-name",
+		    interstitialSection : "header",
+		    easing: "easeOutExpo",
+		    scrollSpeed: 800,
+		    offset : 0,
+		    scrollbars: false,
+		    standardScrollElements: ".modal-content,#section7", 
+		    setHeights: false,
+		    overflowScroll: true,
+		    updateHash: true,
+		    touchScroll:true,
+		    before:function() {},
+		    after:function() {},
+		    afterResize:function() {},
+		    afterRender:function() {}
+		  });
+
+		  var $hamburger = $(".hamburger");
+		  var $menu = $(".menuNav");
+		  $hamburger.on("click", function(e) {
+		    $hamburger.toggleClass("is-active");
+		    $(".menuItems").toggleClass("down");
+		    $(".menuItems").toggleClass("up");
+		    $menu.toggleClass("unhidden");
+		    $menu.toggleClass("hidden");
+		    $menu.toggleClass("hideComplete",800);
+
+		  });
+
+		  $menuItems = $(".menuItems");
+		  $menuItems.on("click", function(a) {
+		  	$hamburger.toggleClass("is-active");
+		  	$(".menuItems").toggleClass("down");
+		    $(".menuItems").toggleClass("up");
+		  	$menu.toggleClass("unhidden");
+		    $menu.toggleClass("hidden");
+		    $menu.toggleClass("hideComplete",800);
+		  });
+
+
+
+		  $('.tlt').textillate({ in: { effect: 'fadeIn' } });
+
+
+		     //Project 1
+            $("#project1").animatedModal({
+                modalTarget:'modal-01',
+                animatedIn:'bounceInUp',
+                animatedOut:'fadeOut',
+                color:'#FF7777',
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },           
+                afterOpen: function() {
+                    console.log("The animation is completed");
+
+                }, 
+                beforeClose: function() {
+                    console.log("The animation was called");
+                }, 
+                afterClose: function() {
+                    console.log("The animation is completed");
+                    $("body").css("overflow","");
+                }
+            });
+
+			//Project 2
+            $("#project2").animatedModal({
+                modalTarget:'modal-02',
+                animatedIn:'bounceInDown',
+                animatedOut:'fadeOut',
+                color:'#95FFB6',
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },           
+                afterOpen: function() {
+                    console.log("The animation is completed");
+                }, 
+                beforeClose: function() {
+                    console.log("The animation was called");
+                }, 
+                afterClose: function() {
+                    console.log("The animation is completed");
+                    $("body").css("overflow","");
+                }
+            });
+
+		     //Project 3
+            $("#project3").animatedModal({
+                modalTarget:'modal-03',
+                animatedIn:'fadeInUpBig',
+                animatedOut:'fadeOut',
+                color:'#FFD995',
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },           
+                afterOpen: function() {
+                    console.log("The animation is completed");
+                }, 
+                beforeClose: function() {
+                    console.log("The animation was called");
+                }, 
+                afterClose: function() {
+                    console.log("The animation is completed");
+                    $("body").css("overflow","");
+                }
+            });
+
+			//Project 4
+            $("#project4").animatedModal({
+                modalTarget:'modal-04',
+                animatedIn:'fadeInUpBig',
+                animatedOut:'fadeOut',
+                color:'#B0E9FF',
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },           
+                afterOpen: function() {
+                    console.log("The animation is completed");
+                }, 
+                beforeClose: function() {
+                    console.log("The animation was called");
+                }, 
+                afterClose: function() {
+                    console.log("The animation is completed");
+                    $("body").css("overflow","");
+                }
+            });   
+
+			//Project 5
+            $("#project5").animatedModal({
+                modalTarget:'modal-05',
+                animatedIn:'fadeInUpBig',
+                animatedOut:'fadeOut',
+                color:'#B0B7FF',
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },           
+                afterOpen: function() {
+                    console.log("The animation is completed");
+                }, 
+                beforeClose: function() {
+                    console.log("The animation was called");
+                }, 
+                afterClose: function() {
+                    console.log("The animation is completed");
+                    $("body").css("overflow","");
+                }
+            }); 
+
+            $(".close-button").on("click",function(b){
+            	$("body").css("overflow","");
+            });
+
+//            window.onresize = function(){ location.reload(); } //
+                    
+	</script>
+
+</body>
+</html>
